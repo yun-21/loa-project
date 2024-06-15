@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root">
+    <a href="#도화가"></a>
+    <a href="#스트라이커"></a>
+    <a href="#호크아이"></a>
+    <a href="#블레이드"></a>
+    <a href="#서머너"></a>
+    <a href="#창술사"></a>
+  </div>
+  <div id="items">
+    <div>
+      <a id="도화가"></a>
+      <div>a</div>
+      <div id="gundanjang">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <div>
+      <a id="스트라이커"></a>
+      <div>b</div>
+    </div>
+    <div>
+      <a id="호크아이"></a>
+      <div>c</div>
+    </div>
+    <div>
+      <a id="블레이드"></a>
+      <div>d</div>
+    </div>
+    <div>
+      <a id="서머너"></a>
+      <div>e</div>
+    </div>
+    <div>
+      <a id="창술사"></a>
+      <div>f</div>
+    </div>
+  </div>
+  <script>
+    // 문서에서 아이디가 문자열 root인 요소를 찾아서 root라는 변수에 할당해줬다.
+    let root = document.getElementById("root");
+
+    //문서에서 아이디가 문자열 items인 요소를 찾아서 items라는 변수에 할당해줬다.
+    let items = document.getElementById("items");
+
+    // loa라는 객체를 생성해서 ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+    var loa = {
+      name: ["도화가", "스트라이커", "호크아이", "블레이드", "서머너", "바드"],
+      level: [1610, 1605, 1580, 1540, 1560, 1475],
+      initialization: "수요일",
+      boss: ["노말 일리아칸", "일리하칸", "쿠크세이튼", "발탄", "비아키스", "상노탑", "카멘", "하브렐슈드", "하양겔", "노양겔"],
+      ingredient1: [
+        "찬란한 명예의 돌파석",
+        "정제된 수호강석",
+        "정제된 파괴강석",
+        "명예의 파편",
+        "골드",
+      ],
+      ingredient2: [
+        "경이로운 명예의 돌파석",
+        "수호강석",
+        "파괴강석",
+        "명예의 파편",
+        "골드",
+      ],
+      gatshu: [
+        16,
+        34,
+        21,
+        3500,
+      ],
+      getgold: [13000, 9000, 10000, 6500, 3000, 2400, 1800, 7500, 8000, 10500],
+      mygold: 2000000,
+      siling: 12000000
+    }
+    for (var i = 0; i < loa.name.length; i++) {
+      if (loa.name[i] === "바드") {
+        loa.name[i] = "창술사";
+      }
+      root.children[i].textContent = loa.name[i];
+    }
+    // style 조정 // 
+    root.style.display = "flex";
+    root.style.alignItems = "center";
+    root.style.justifyContent = "space-around";
+    root.style.backgroundColor = "lightblue";
+    root.style.height = "100px";
+    root.style.fontSize = "18px";
+    root.style.fontWeight = "600";
+
+    for (let a = 0; a < root.children.length; a++) {
+      root.children[a].style.textDecorationLine = "none";
+      root.children[a].style.color = "lightcoral";
+    }
+    for (let b = 0; b < items.children.length; b++) {
+      items.children[b].style.height = "100vh";
+    }
+    // for(let c=0; c<loa.name.length; c++){
+    //   if(loa.name[c]==='도화가'){
+    //     for(let d=0; d<loa.level.length; d++){
+    //       if(loa.level[d]===1605){
+    //         items.children[0].innerHTML=loa.level[d];
+    //       }
+    //   else if(loa.name[c]==='스트라이커'){}
+    //     }
+    //   }
+    // }
+
+    // 각각 직업의 맞는 레벨 대입
+    for (let c = 0; c < loa.name.length; c++) {
+      for (let d = 0; d < loa.level.length; d++) {
+        if (loa.name[c] === '도화가') {
+          if (loa.level[d] === 1605) {
+            items.children[0].children[0].innerHTML = loa.name[c] + ' ' + loa.level[d];
+            items.children[0].children[1].innerHTML = `가야할 Boss : ${loa.boss[1]}, ${loa.boss[5]}, ${loa.boss[7]}`;
+          }
+          else {
+            continue;
+          }
+        }
+        else if (loa.name[c] === '스트라이커') {
+          if (loa.level[d] === 1610) {
+            items.children[1].children[0].innerHTML = loa.name[c] + ' ' + loa.level[d];
+            items.children[1].children[1].innerHTML = `가야할 Boss : ${loa.boss[6]}, ${loa.boss[1]},  ${loa.boss[5]}`;
+          }
+          else {
+            continue;
+          }
+        }
+        else if (loa.name[c] === '호크아이') {
+          if (loa.level[d] === 1560) {
+            items.children[2].children[0].innerHTML = loa.name[c] + ' ' + loa.level[d];
+            items.children[2].children[1].innerHTML = `가야할 Boss : ${loa.boss[2]}, ${loa.boss[7]}, ${loa.boss[9]}`;
+          }
+          else {
+            continue;
+          }
+        }
+        else if (loa.name[c] === '블레이드') {
+          if (loa.level[d] === 1540) {
+            items.children[3].children[0].innerHTML = loa.name[c] + ' ' + loa.level[d];
+            items.children[3].children[1].innerHTML = `가야할 Boss : ${loa.boss[2]}, ${loa.boss[7]}, ${loa.boss[9]}`;
+          }
+          else {
+            continue;
+          }
+        }
+        else if (loa.name[c] === '서머너') {
+          if (loa.level[d] === 1580) {
+            items.children[4].children[0].innerHTML = loa.name[c] + ' ' + loa.level[d];
+            items.children[4].children[1].innerHTML = `가야할 Boss : ${loa.boss[0]}, ${loa.boss[7]}, ${loa.boss[8]}`;
+          }
+          else {
+            continue;
+          }
+        }
+        else if (loa.name[c] === '창술사') {
+          if (loa.level[d] === 1475) {
+            items.children[5].children[0].innerHTML = loa.name[c] + ' ' + loa.level[d];
+            items.children[5].children[1].innerHTML = `가야할 Boss : ${loa.boss[4]}, ${loa.boss[3]}`;
+          }
+          else {
+            continue;
+          }
+        }
+      }
+    }
+
+    let gundanjang = document.getElementById("gundanjang");
+    gundanjang.style.display = "grid";
+    gundanjang.style.gridTemplateColumns = "repeat(3,1fr)";
+    gundanjang.style.gridTemplateRows = "repeat(2,1fr)";
+    gundanjang.style.alignItems = "end";
+    gundanjang.style.justifyItems = "center";
+    gundanjang.style.gap = "20px";
+    gundanjang.children[0].innerHTML = `<h3>일리하칸</h3>`;
+    gundanjang.style.height = "240px";
+    function gunil() {
+      for (let i = 0; i < loa.ingredient1.length; i++) {
+        if (loa.ingredient1[i] === '골드') {
+          for (let j = 0; j < loa.getgold.length; j++) {
+            if (loa.getgold[j] === 10000) {
+              gundanjang.children[3].innerHTML += loa.ingredient1[i] + ` : ` + loa.getgold[j] + `<br>`;
+            }
+          }
+        }
+        else {
+          gundanjang.children[3].innerHTML += loa.ingredient1[i] + ` : ` + loa.gatshu[i] + `<br>`;
+        }
+      }
+    }
+
+    gundanjang.children[0].addEventListener('click', gunil, { once: true });
+
+    gundanjang.children[1].innerHTML = `<h3>상노탑</h3>`;
+    function guntop() {
+      for (let i = 0; i < loa.ingredient2.length; i++) {
+        if (loa.ingredient2[i] === '골드') {
+          for (let j = 0; j < loa.getgold.length; j++) {
+            if (loa.getgold[j] === 9000) {
+              gundanjang.children[4].innerHTML += loa.ingredient2[i] + ` : ` + loa.getgold[j] + `<br>`;
+            }
+          }
+        }
+        else {
+          gundanjang.children[4].innerHTML += loa.ingredient2[i] + ` : ` + loa.gatshu[i] + `<br>`;
+        }
+      }
+    }
+    gundanjang.children[1].addEventListener('click', guntop, { once: true });
+
+    gundanjang.children[2].innerHTML = `<h3>하브렐슈드</h3>`;
+    function gunhashu() {
+      for (let i = 0; i < loa.ingredient1.length; i++) {
+        if (loa.ingredient1[i] === '골드') {
+          for (let j = 0; j < loa.getgold.length; j++) {
+            if (loa.getgold[j] === 10500) {
+              gundanjang.children[5].innerHTML += loa.ingredient1[i] + ` : ` + loa.getgold[j] + `<br>`;
+            }
+          }
+        }
+        else {
+          gundanjang.children[5].innerHTML += loa.ingredient1[i] + ` : ` + loa.gatshu[i] + `<br>`;
+        }
+      }
+    }
+    gundanjang.children[2].addEventListener('click', gunhashu, { once: true }); //한번만 실행
+
+    let itemchild0 = items.children[0]; //도화가 부분
+    let itchildfris = document.createElement("div");
+    itemchild0.appendChild(itchildfris); //도화가div 자식으로 div생성
+    itchildfris.style.display = "flex";
+    itchildfris.style.gap = "100px";
+    itchildfris.style.alignItems = "center";
+    //도화가div 자식인div 스타일지정
+
+    let add = document.createElement("div");
+    itchildfris.appendChild(add); //도화가 자식div의 첫번째 자식으로 생성
+
+    let result = document.createElement("div");
+    itchildfris.appendChild(result); //도화가 자식div의 두번째 자식으로 생성
+
+    for (let i = 0; i < loa.boss.length; i++) {
+      let input = document.createElement("input");
+      add.appendChild(input);
+      let label = document.createElement("label");
+      add.appendChild(label);
+      let br = document.createElement("br");
+      add.appendChild(br);
+      input.type = "checkbox";
+      input.name = "Boss";
+      input.id = loa.boss[i];
+      label.htmlFor = loa.boss[i];
+      if (input.id === label.htmlFor) {
+        label.textContent = loa.boss[i];
+
+        input.addEventListener('click', function () {
+          let re = "";
+          if (loa.boss[i] === '노말 일리아칸') {
+            if (input.checked === true) {
+              label.style.color = "red";
+              re += loa.getgold[8];
+              result.innerHTML += re;
+            }
+            else {
+              label.style.color = "blue";
+              re -= loa.getgold[8];
+              result.innerHTML -= re;
+              // result.textContent-= "골드:"+loa.getgold[0];
+            }
+          }
+          else if (loa.boss[i] === '일리하칸') {
+            if (input.checked === true) {
+              re += loa.getgold[2];
+              result.innerHTML += re;
+            }
+            else {
+              label.style.color = "blue";
+              re -= loa.getgold[2];
+              result.innerHTML -= re;
+            }
+          }
+        });
+
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>
