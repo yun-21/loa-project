@@ -63,10 +63,14 @@
       mygold: 2000000
     }
 
-    root.children[0].innerHTML = `<h1>로스트 아크</h1>`;
+    root.children[0].innerHTML = `로스트 아크`;
     root.children[0].style.display = "flex";
     root.children[0].style.alignItems = "center";
     root.children[0].style.justifyContent = "center";
+    root.children[0].style.textDecoration = "none";
+    root.children[0].style.fontWeight = "900";
+    root.children[0].style.fontSize = "53px";
+    root.children[0].style.color = "#FFCC00"
 
     // style 조정 // 
     root.style.display = "flex";
@@ -80,10 +84,6 @@
     root.style.fontSize = "18px";
     root.style.fontWeight = "600";
 
-    for (let i = 0; i < root.children.length; i++) {
-      root.children[i].style.textDecorationLine = "none";
-      root.children[i].style.color = "lightcoral";
-    }
     for (let i = 0; i < items.children.length; i++) {
       items.children[i].style.height = "100vh";
     }
