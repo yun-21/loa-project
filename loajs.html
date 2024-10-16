@@ -20,7 +20,7 @@
   <div id="items">
     <div>
       <a id="도화가"></a>
-      <div>a</div>
+      <div></div>
       <div id="gundanjang">
         <div></div>
         <div></div>
@@ -39,7 +39,7 @@
     let items = document.getElementById("items");
 
     // loa라는 객체를 생성
-    var loa = {
+    let loa = {
       name: ["도화가", "스트라이커", "호크아이"],
       level: [1610, 1605, 1560],
       initialization: "수요일",
@@ -51,35 +51,39 @@
         "명예의 파편",
         "골드",
       ],
-
-      gatshu: [
-        16,
-        34,
-        21,
-        3500,
-      ],
-
+      gatshu: [16,34,21,500],
       getgold: [10000, 9000, 10500],
       mygold: 2000000
     }
-
-    root.children[0].innerHTML = `로스트 아크`;
+    root.children[0].style.position = 'relative';
+    root.children[0].style.zIndex = '2';
+    root.children[0].innerHTML = `Next Level`;
     root.children[0].style.display = "flex";
     root.children[0].style.alignItems = "center";
     root.children[0].style.justifyContent = "center";
     root.children[0].style.textDecoration = "none";
     root.children[0].style.fontWeight = "900";
     root.children[0].style.fontSize = "53px";
-    root.children[0].style.color = "#FFCC00"
+    root.children[0].style.color = "black"
 
-    // style 조정 // 
+    const rootChildTwo = document.createElement('div')
+    root.appendChild(rootChildTwo);
+    rootChildTwo.style.position = 'absolute';
+    rootChildTwo.style.zIndex = '1';
+    rootChildTwo.style.backgroundImage = 'url("./banner.png")';
+    rootChildTwo.style.backgroundSize = 'cover'; 
+    rootChildTwo.style.backgroundPosition = 'center';
+    rootChildTwo.style.top = 0;
+    rootChildTwo.style.left = 0;
+    rootChildTwo.style.right = 0;
+    rootChildTwo.style.bottom = 0;
+    rootChildTwo.style.opacity = "0.6";
+
+    // style 조정 //
+    root.style.position = 'relative'; 
     root.style.display = "flex";
     root.style.alignItems = "center";
     root.style.justifyContent = "space-around";
-    root.style.backgroundImage = 'url("./banner.png")';
-    root.style.backgroundSize = 'cover'; 
-    root.style.backgroundPosition = 'center';
-    root.style.opacity = "0.7";
     root.style.height = "200px";
     root.style.fontSize = "18px";
     root.style.fontWeight = "600";
@@ -157,7 +161,7 @@
       }
 
     }
-    gundanjang.children[1].addEventListener('click', guntop);
+    // gundanjang.children[1].addEventListener('click', guntop);
 
     gundanjang.children[2].innerHTML = `<h3>하브렐슈드</h3>`;
     let c = 1;
@@ -186,14 +190,30 @@
     gundanjang.children[1].addEventListener('click', guntop);
     gundanjang.children[2].addEventListener('click', gunhashu);
 
+    let itchildBackImg = document.createElement("div");
+    items.appendChild(itchildBackImg);
+    items.style.position = 'relative';
 
     let itemchild0 = items.children[0]; //도화가 부분
     let itchildfris = document.createElement("div");
     itemchild0.appendChild(itchildfris); //도화가div 자식으로 div생성
+    itemchild0.style.position = 'relative';
+    itemchild0.style.zIndex = '2';  // z-index로 앞에 배치
     itchildfris.style.display = "flex";
     itchildfris.style.gap = "100px";
     itchildfris.style.height = "100px";
     itchildfris.style.alignItems = "center";
+    itchildBackImg.style.height = "100vh";
+    itchildBackImg.style.top = 0;
+    itchildBackImg.style.left = 0;
+    itchildBackImg.style.right = 0;
+    itchildBackImg.style.bottom = 0;
+    itchildBackImg.style.position = 'absolute';
+    itchildBackImg.style.backgroundImage = 'url("./dohwaga.png")';
+    itchildBackImg.style.backgroundSize = 'cover'; 
+    itchildBackImg.style.backgroundPosition = 'center';
+    itchildBackImg.style.zIndex = '1';  // z-index로 뒤에 배치
+    itchildBackImg.style.opacity = "0.2";
     //도화가div 자식인div 스타일지정
 
     let add = document.createElement("div");
@@ -238,7 +258,6 @@
           else {
             if (loa.boss[i] === "일리하칸") {
               result.splice(0, 1);
-
             }
             else if (loa.boss[i] === "상노탑") {
               for (let i = 0; i < result.length; i++) {
@@ -278,7 +297,8 @@
       name: ["서포터", "딜러"],
       characteristic: ["극신", "특신"],
       conclusion: ["선각자", "진군"],
-      explain: ["딜량 19.95%, 스킬 쿨타임 11초", "딜량 19.95%, 스킬 쿨타임 11.6초", "딜량 22.16%, 스킬 쿨타임 12초", "추천하지않음"]
+      explain: ["딜량 19.95%, 스킬 쿨타임 11초", "딜량 19.95%, 스킬 쿨타임 11.6초",
+      "딜량 22.16%, 스킬 쿨타임 12초", "추천하지않음"]
     };
 
     let elikname = document.createElement("div");
